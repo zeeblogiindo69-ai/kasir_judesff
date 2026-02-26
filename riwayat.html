@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Riwayat Transaksi</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="logo">Cimol Nona Judes</div>
+      <div>
+        <a href="index.html">Menu</a>
+        <a href="riwayat.html">Riwayat</a>
+        <a href="laporan.html">Laporan</a>
+      </div>
+    </div>
+
+    <div class="container">
+      <h3>Riwayat Transaksi</h3>
+
+      <input
+        type="date"
+        id="filterTanggalRiwayat"
+        onchange="renderRiwayat()"
+        style="margin-bottom: 20px"
+      />
+      <div
+        id="totalPendapatanHariIni"
+        style="
+          background: #111;
+          color: #fff;
+          padding: 15px;
+          border-radius: 10px;
+          margin-bottom: 20px;
+        "
+      ></div>
+
+      <div id="dataRiwayat"></div>
+    </div>
+
+    <script src="riwayat.js"></script>
+  </body>
+</html>
