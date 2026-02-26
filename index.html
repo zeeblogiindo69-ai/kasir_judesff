@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cimol Nona Judes</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="logo">Cimol Nona Judes</div>
+      <div>
+        <a href="index.html">Menu</a>
+        <a href="riwayat.html">Riwayat</a>
+        <a href="laporan.html">Laporan</a>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- KIRI -->
+      <div class="left">
+        <h3>Keranjang</h3>
+        <div id="cart"></div>
+        <h2 id="total">Rp 0</h2>
+
+        <input type="text" id="pelanggan" placeholder="Nama Pelanggan" />
+        <input type="text" id="pelayan" placeholder="Nama Pelayan" />
+
+        <select id="metode" onchange="metodeChange()">
+          <option value="">Metode Pembayaran</option>
+          <option value="cash">Cash</option>
+          <option value="edc">EDC</option>
+          <option value="qris">QRIS</option>
+        </select>
+
+        <div id="pembayaran"></div>
+
+        <button onclick="checkout()">Bayar</button>
+      </div>
+
+      <!-- KANAN -->
+      <div class="right">
+        <button onclick="openModal()">+ Tambah Menu</button>
+        <div id="menuList"></div>
+      </div>
+    </div>
+
+    <!-- MODAL TAMBAH MENU -->
+    <div class="modal" id="modal" style="display: none">
+      <div class="modal-box">
+        <h3>Tambah Menu</h3>
+        <input id="nama" placeholder="Nama Menu" />
+        <input id="harga" placeholder="Harga" onkeyup="formatRupiah(this)" />
+        <input id="stok" type="number" placeholder="Stok (KG)" />
+        <button onclick="simpanMenu()">Simpan</button>
+        <button onclick="closeModal()">Batal</button>
+      </div>
+    </div>
+
+    <!-- MODAL TAMBAH STOK -->
+    <div id="modalStock" class="modal">
+      <div class="modal-box">
+        <h3>Tambah Stok</h3>
+        <p id="stockMenuName"></p>
+        <input
+          type="number"
+          id="tambahStokInput"
+          placeholder="Tambah berapa porsi"
+        />
+        <button onclick="simpanTambahStok()">Simpan</button>
+        <button onclick="tutupModalStock()">Batal</button>
+      </div>
+    </div>
+
+    <div id="notifFrame" class="notif-frame">
+      <div class="notif-box">
+        <p id="notifText"></p>
+      </div>
+    </div>
+
+    <!-- FRAME VERIFIKASI HAPUS -->
+    <div id="hapusFrame" class="notif-frame" style="display: none">
+      <div class="notif-box">
+        <p id="hapusText">Yakin ingin menghapus menu ini?</p>
+        <div
+          style="
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+          "
+        >
+          <button onclick="konfirmasiHapus()" style="background: red">
+            Ya, Hapus
+          </button>
+          <button onclick="batalHapus()" style="background: gray">Batal</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- FRAME VERIFIKASI RESET -->
+    <div id="resetFrame" class="notif-frame" style="display: none">
+      <div class="notif-box">
+        <p>Yakin ingin reset stok jadi 0?</p>
+        <div
+          style="
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+          "
+        >
+          <button onclick="konfirmasiReset()" style="background: red">
+            Ya, Reset
+          </button>
+          <button onclick="batalReset()" style="background: gray">Batal</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="menu.js"></script>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laporan - Cimol Nona Judes</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="logo">Cimol Nona Judes</div>
+    <div>
+        <a href="index.html">Menu</a>
+        <a href="riwayat.html">Riwayat</a>
+        <a href="laporan.html">Laporan</a>
+    </div>
+</div>
+
+<div class="container">
+  <div class="laporan-wrapper">
+
+    <h2 class="laporan-title">Menu Laporan</h2>
+
+    <div class="laporan-grid">
+
+      <div class="laporan-card" onclick="showLaporan('penjualan')">
+        <div class="laporan-icon">📊</div>
+        <h3>Laporan Penjualan</h3>
+      </div>
+
+      <div class="laporan-card" onclick="showLaporan('profit')">
+        <div class="laporan-icon">💰</div>
+        <h3>Profit</h3>
+      </div>
+
+      <div class="laporan-card" onclick="showLaporan('statistik')">
+        <div class="laporan-icon">📈</div>
+        <h3>Statistik Harian</h3>
+      </div>
+
+    </div>
+
+    <!-- ================= FRAME BUKA/TUTUP TOKO ================= -->
+
+    <div id="tokoFrame" class="notif-frame">
+      <div class="notif-box">
+        <p id="tokoText">Masukkan password untuk buka toko</p>
+        <input type="password" id="passwordToko" placeholder="Password"
+          style="margin-top:10px;padding:8px;width:100%;border-radius:6px;border:1px solid #ccc;">
+        <div style="margin-top:15px;display:flex;gap:10px;justify-content:center;">
+          <button onclick="konfirmasiToko()" style="background:green;">
+            Konfirmasi
+          </button>
+          <button onclick="batalToko()" style="background:gray;">
+            Batal
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= CONTENT DINAMIS ================= -->
+
+    <div id="laporanContent"></div>
+
+    
+
+<script src="laporan.js"></script>
+
+</body>
+</html>

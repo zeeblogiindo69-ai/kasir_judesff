@@ -1,0 +1,405 @@
+/* ================= GLOBAL ================= */
+
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#f2f4f8;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+  background:#1976d2;
+  color:white;
+  padding:14px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.navbar a{
+  color:white;
+  text-decoration:none;
+  margin-left:18px;
+  font-size:14px;
+}
+
+.logo{
+  font-weight:bold;
+  font-size:16px;
+}
+
+/* ================= LAYOUT ================= */
+
+.container{
+  display:flex;
+  height:calc(100vh - 60px);
+}
+
+.notif-frame{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.notif-box{
+  background: white;
+  padding: 25px 40px;
+  border-radius: 12px;
+  font-weight: bold;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  animation: pop 0.2s ease;
+}
+
+@keyframes pop{
+  from{ transform: scale(0.8); opacity:0; }
+  to{ transform: scale(1); opacity:1; }
+}
+
+/* ================= LEFT (KERANJANG) ================= */
+
+.left{
+  width:40%;
+  background:white;
+  padding:20px;
+  overflow:auto;
+  border-right:1px solid #e0e0e0;
+}
+
+/* ================= RIGHT (MENU) ================= */
+
+.right{
+  width:60%;
+  padding:20px;
+  overflow:auto;
+}
+
+.menu-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:15px;
+}
+
+/* ================= GRID MENU ================= */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+
+/* ================= CARD MENU ================= */
+
+.card{
+  background:#ffffff;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.08);
+  transition:0.2s ease;
+}
+
+.card:hover{
+  transform:translateY(-3px);
+}
+
+.card h3{
+  margin:0 0 10px 0;
+}
+
+.card p{
+  margin:6px 0;
+  font-size:14px;
+}
+
+/* ================= BUTTON ================= */
+
+button{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  background:#1976d2;
+  color:white;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:14px;
+  transition:0.2s;
+}
+
+button:hover{
+  opacity:0.9;
+}
+
+/* Tombol hapus beda warna */
+.card button:last-child{
+  background:#d32f2f;
+}
+
+/* ================= INPUT & SELECT ================= */
+
+input, select{
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  box-sizing:border-box;
+  font-size:14px;
+}
+
+/* ================= MODAL ================= */
+
+.modal{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.4);
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+}
+
+.modal-box{
+  background:white;
+  width:90%;
+  max-width:340px;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+  animation:fadeIn 0.2s ease-in-out;
+}
+
+/* ================= RESPONSIVE SMARTPHONE ================= */
+
+@media (max-width: 768px){
+
+  body{
+    font-size:14px;
+  }
+
+  .container{
+    flex-direction:column;
+    height:auto;
+  }
+
+  .left, .right{
+    width:100%;
+    height:auto;
+    border-right:none;
+    box-shadow:none;
+    padding:12px;
+  }
+
+  .left{
+    border-bottom:1px solid #ddd;
+  }
+
+  .menu-header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:8px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+
+  .card{
+    padding:12px;
+    border-radius:10px;
+  }
+
+  .card h4{
+    font-size:15px;
+  }
+
+  .card p{
+    font-size:13px;
+  }
+
+  .card button{
+    font-size:12px;
+    padding:7px;
+  }
+
+  input, select{
+    font-size:14px;
+    padding:9px;
+  }
+
+  button{
+    font-size:14px;
+    padding:10px;
+  }
+
+  .navbar{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:6px;
+  }
+
+  .navbar a{
+    margin-left:0;
+  }
+
+  .modal-box{
+    width:95%;
+    max-width:350px;
+  }
+
+}
+
+.modal-box h3{
+  margin-top:0;
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes fadeIn{
+  from{
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to{
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ================= LAPORAN PAGE ================= */
+
+.laporan-wrapper {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+.laporan-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.laporan-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.laporan-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.laporan-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.laporan-icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+/* Responsive laporan */
+@media (min-width: 600px) {
+  .laporan-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  /* ================= OVERLAY TOKO ================= */
+
+  .overlay-tutup{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.85);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+  }
+
+  .overlay-box{
+    text-align:center;
+    color:white;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .overlay-box h1{
+    font-size:40px;
+    margin-bottom:10px;
+  }
+}
+
+/* ================= TAMBAHAN UNTUK LAPORAN HTML ================= */
+
+/* Pastikan tombol navbar tidak full width */
+.navbar button{
+  width:auto;
+  margin-top:0;
+}
+
+/* Agar laporan-wrapper tidak ketutup overlay frame */
+.laporan-wrapper{
+  position:relative;
+  z-index:1;
+}
+/* ================= STATISTIK ================= */
+
+.statistik-wrapper{
+  max-width:900px;
+  margin:0 auto;
+  padding:20px;
+}
+
+.stat-total-box{
+  background:#000;
+  color:white;
+  padding:15px;
+  border-radius:10px;
+  margin:15px 0;
+  font-weight:bold;
+  text-align:center;
+}
+
+.stat-table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:20px;
+}
+
+.stat-table th,
+.stat-table td{
+  border:1px solid #ddd;
+  padding:10px;
+  text-align:center;
+}
+
+.stat-table th{
+  background:#1976d2;
+  color:white;
+}
+
+canvas{
+  margin-top:20px;
+  background:white;
+  padding:10px;
+  border-radius:10px;
+  box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
